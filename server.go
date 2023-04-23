@@ -1,6 +1,7 @@
 package main
 
 import (
+	"jobhun-intern/routes"
 	"log"
 	"os"
 
@@ -17,9 +18,8 @@ func main() {
 	// init server
 	server := fiber.New()
 
-	server.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
+	// init routes
+	routes.RouteInit(server)
 
 	// Listen server on PORT ...
 	PORT := os.Getenv("PORT")

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"jobhun-intern/database"
 	"jobhun-intern/routes"
 	"log"
 	"os"
@@ -14,6 +15,10 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	// init database connection
+	DB := database.DBInit()
+	defer DB.Close()
 
 	// init server
 	server := fiber.New()

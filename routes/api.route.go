@@ -11,4 +11,5 @@ func RouteInit(server *fiber.App) {
 
 	v1 := server.Group("v1")
 	v1.Get("/mahasiswa/list", controllers.SendAllMahasiswa)
+	v1.Post("/mahasiswa/add", controllers.CreateMahasiswa)
 }

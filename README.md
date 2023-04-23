@@ -34,3 +34,15 @@ Overall, adopting Fiber has made my shift from NodeJS to Golang easier and more 
 	```
 
 > If you prefer to run from the build binary, you can run `./bin/jobhun-intern`
+
+# Exposed APIs
+1. Read all mahasiswa + their jurusan + their hobby
+	```
+	/v1/mahasiswa/list
+	```
+	**method: GET**
+2. Create mahasiswa + their jurusan + their hobby
+	```
+	/v1/mahasiswa/add
+	```
+	**method: POST**

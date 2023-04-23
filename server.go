@@ -1,13 +1,27 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"log"
+	"os"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	app := fiber.New()
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
-	app.Get("/", func(c *fiber.Ctx) error {
+	// init server
+	server := fiber.New()
+
+	server.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
 
-	app.Listen(":3000")
+	// Listen server on PORT ...
+	PORT := os.Getenv("PORT")
+	server.Listen(":" + PORT)
 }
